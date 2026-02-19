@@ -4,9 +4,9 @@ import PortfolioItemPage from './pages/PortfolioItemPage';
 // import { portfolioItems } from './utils/data';
 
 
-export const App = () => {
+function App() {
     const [selectedItem, setSelectedItem] = useState(null); // null = liste anzeigen
-
+console.log("Selected item", selectedItem);
     return (
         <>
             {selectedItem ? (

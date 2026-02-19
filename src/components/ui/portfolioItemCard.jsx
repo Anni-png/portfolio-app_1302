@@ -1,44 +1,57 @@
 
 import React from 'react';
-import { Box, Image, Text, Stack, Tag, Flex } from '@chakra-ui/react'
+import { Box, Flex, Tag, Image, Stack, Text } from '@chakra-ui/react';
 
-
-const PortfolioItemCard = ({ item, onClick }) => {
+const PortfolioItemCard = ({ item, setSelectedItem }) => {
     return (
-    <Box
-        borderWidth="1px"
-        borderRadius="lg"
+    <Box 
+        border="1px solid white" 
+        borderRadius="2xl"
         overflow="hidden"
-        p={4}
         cursor="pointer"
-        onClick={onClick}
-        _hover={{ bg: "gray.400" }}
-    >
-        <Stack spacing={3}>
-            <Image 
-            src={item.imageUrl}
-            alt={item.title}
-            borderRadius="lg"
-            />
+        p={7}
+        onClick={()=> setSelectedItem(item)}
+        _hover={{ transform: 'scale(0.95)', boxShadow: 'xl'}}
+        transition="transform 0.3s ease-in-out"
+        >
+        
+    <Image 
+        src={item.imageUrl}
+        alt={item.title}
+        borderRadius="2xl"
+        objectFit="cover"
+        w="100%"
+        h="350px"
+    />
 
-            <Text fontSize="xl" fontWeight="bold">
-                {item.title}
-            </Text>
+<Stack 
+    spacing={5}
+    mt={5}>
 
-            <Text >
+        <Text
+            fontWeight="bold"
+            fontSize="2xl"
+                >{item.title}
+        </Text>
+
+        <Text
+            fontSize="sm"
+            color="gray.600"
+            mb={2}>
                 {item.summary}
-            </Text>
+        </Text>
 
-            <Flex wrap="wrap" gap={2}>
-            {(item.skill || []).map((skill, index) => (
-                <Tag key={index} colorScheme="blue">
-                    {skill}
-                </Tag>
-            ))}
-            </Flex> 
-        </Stack>
-    </Box>
-    );
-}
+        <Flex wrap="wrap" gap={2}>
+        {Array.isArray(item.skills) && item.skills.map((skill, index) => (
+        <Tag.Root colorScheme="purple" key={index} size="sm">
+            <Tag.Label>{skill}</Tag.Label>
+            </Tag.Root>
+        ))}
+        </Flex>
+    </Stack>
+</Box>
+);
+};
 
 export default PortfolioItemCard;
+

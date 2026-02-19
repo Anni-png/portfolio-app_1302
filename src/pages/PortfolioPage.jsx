@@ -1,7 +1,8 @@
 
 import React from 'react'
+import PortfolioItemCard from '../components/ui/PortfolioItemCard';
 import { portfolioItems } from '../utils/data';
-import PortfolioItemCard from '../components/ui/portfolioItemCard';
+
 
 
 
@@ -13,7 +14,7 @@ return (
         <PortfolioItemCard 
             key={item.id}
             item={item}
-            onClick={()=> setSelectedItem(item)}
+            setSelectedItem={setSelectedItem}
             />
     ))}
     </>
