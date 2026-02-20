@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Box, Flex, Tag, Image, Stack, Text } from '@chakra-ui/react';
+import { Box, Flex, Tag, Image, Stack, Text, Heading } from '@chakra-ui/react';
 
 const PortfolioItemCard = ({ item, setSelectedItem }) => {
     return (
@@ -28,11 +28,12 @@ const PortfolioItemCard = ({ item, setSelectedItem }) => {
     spacing={5}
     mt={5}>
 
-        <Text
+        <Heading
             fontWeight="bold"
-            fontSize="2xl"
+            fontSize="6xl"
+            lineHeight="1"
                 >{item.title}
-        </Text>
+        </Heading>
 
         <Text
             fontSize="sm"
