@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PortfolioPage from './pages/PortfolioPage';
 import PortfolioItemPage from './pages/PortfolioItemPage';
+import Header from './components/ui/Header';
 // import { portfolioItems } from './utils/data';
 
 
@@ -9,6 +10,10 @@ function App() {
 console.log("Selected item", selectedItem);
     return (
         <>
+
+<Header />
+
+
             {selectedItem ? (
                 <PortfolioItemPage 
                     item={selectedItem}
