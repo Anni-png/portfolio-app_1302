@@ -1,78 +1,35 @@
 
 
-import React, { useEffect, useState } from 'react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
-import { useTheme } from 'next-themes'
+'use client'
+
+
+import { IconButton } from '@chakra-ui/react'
+import { FiSun, FiMoon } from 'react-icons/fi'
+import { useEffect, useState } from 'react'
+import React from 'react'
+
 
 export function ColorModeToggle() {
-    const { theme, setTheme, resolvedTheme } = useTheme()
-    const [mounted, setMounted] = useState(false)
+    const [isDark, setIsDark] = useState(false)
 
-    useEffect (() => {
-        setMounted(true)
-    }, [])
-
-    if (!mounted) return null
-
-    const current = theme ?? resolvedTheme
-    const isActive = (mode) => {
-        return current === mode
-    }
-
+    useEffect(() => {
+        const root = document.documentElement
+        if(isDark) {
+            root.classList.add("dark")
+        } else{
+            root.classList.remove("dark")
+        }
+    }, [isDark])
+ 
     return (
-        <ButtonGroup isAttached size="sm" aria-label="Theme toggle">
-            <Button 
-            onClick={() => setTheme('light')}
-            color={isActive("light")
-                ? undefined
-                : "white"
-            }
-            variant={isActive("light")
-                ? "solid"
-                : "ghost"
-            }
-            _hover={isActive("light")
-                ? undefined
-                : {
-                    _light: { color: "black"},
-                    _dark: { color: "white"},
-                }
-            }
+            <IconButton
+            aria-label="Toggle color mode"
+            onClick={() => setIsDark(!isDark)}      
+            variant="ghost"
+            size="md"
             >
-                Light</Button>
 
-            <Button 
-            onClick={() => setTheme('dark')}
-            variant={isActive("dark")
-                ? "solid"
-                : "ghost"
-                }
-            _hover={isActive("dark")
-                ? undefined
-                : {
-                    _light: { color: "black"},
-                    _dark: { color: "white"},
-                }
-            }
-                >
-                    Dark</Button>
-            <Button
-                onClick={() => setTheme('system')}
-                color={isActive('system')
-                    ? undefined
-                    : "white"
-                }
-                _variant={
-                    isActive("system")
-                    ? "solid"
-                    : "ghost"
-                }
-                >System
-            </Button>
-
-    
-
-
-        </ButtonGroup>
+            {isDark ? <FiSun size={20} color='gold' /> : <FiMoon size={20} color='white'/> }  
+            </IconButton>
     )
 }
