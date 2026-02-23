@@ -1,18 +1,20 @@
-versions used:
+          \ \      / /__| | ___ ___  _ __ ___   ___     
+           \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ 
+            \ V  V /  __/ | (_| (_) | | | | | |  __/  
+             \_/\_/ \___|_|\___\___/|_| |_| |_|\___|    
 
-🧩 Chakra UI v3
 
-@chakra-ui/react: 3.33.0
-@chakra-ui/cli: 3.33.0
+This app has crashed more times than I can count  
+today, i swear, it works.
 
-🎨 Emotion
+Versions that survived:
 
-@emotion/react: 11.14.0
-@emotion/styled: 11.14.1
+- React 19.1.0  
+- React-DOM 19.1.0  
+- @chakra-ui/react 3.33.0  
+- @emotion/react 11.14.0  
+- @emotion/styled 11.14.1  
+- next-themes 0.4.6  
+- react-icons 5.5.0  
 
-⚛️ React
-React 18 
-Library: React
-
-⚡ Build Tool
-Tool: Vite
+maybe these versions will still work tomorrow. 
